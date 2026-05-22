@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protest Received</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: #fde047;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #ef4444;
+  font-size: 48px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.divider {
+  height: 6px;
+  margin: 30px auto;
+  width: 80%;
+  background: repeating-linear-gradient(
+    45deg, white 0, white 10px,
+    black 10px, black 20px
+  );
+}
+
+.card {
+  background: #111;
+  border: 2px solid #fde047;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.status-box {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px dashed #ef4444;
+  background: black;
+}
+
+button {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background: #ef4444;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dc2626;
+}
+
+.small {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 15px;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+/* Fake statuses */
+.status-reviewing {
+  background: #facc15;
+  color: black;
+}
+
+.status-ignored {
+  background: #ef4444;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Protest Received</h1>
+<p class="subtitle">Your argument has been officially acknowledged*</p>
+
+<div class="divider"></div>
+
+<div class="card">
+
+<p>
+✅ Your protest has been successfully logged into the official system.
+</p>
+
+<div class="status-box">
+
+<p><b>Current Status:</b></p>
+
+<div class="status-tag status-reviewing">UNDER REVIEW</div>
+
+<p class="small">
+Review includes: selective reading, reinterpretation, and possible dismissal.
+</p>
+
+</div>
+
+<p style="margin-top: 20px;">
+Our team of highly specialized attorneys will now:
+</p>
+
+<p>
+• Review your argument<br>
+• Reinterpret the rules<br>
+• Decide what they meant<br>
+• Probably side with whoever is louder
+</p>
+
+<div class="status-tag status-ignored" style="margin-top:20px;">
+LIKELY OUTCOME: IGNORED OR TECHNICALLY DENIED
+</div>
+
+<p class="small">
+*Acknowledgement does not imply agreement, action, or actual reading of your submission.
+</p>
+
+<button onclick="window.location.href='index.html'">
+Return to Main Page
+</button>
+
+</div>
+
+<div class="divider"></div>
+
+<p class="small">
+RulezLawyers LLP • Winning on a technicality since late 2025.
+</p>
+
+</div>
+
+</body>
+
+</html>

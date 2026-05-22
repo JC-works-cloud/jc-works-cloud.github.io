@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RulezLawyers — File a Protest</title>
+<style>
+  :root{
+    --bg:#000;
+    --panel:#111;
+    --yellow:#fde047;
+    --red:#ef4444;
+    --white:#fff;
+    --muted:rgba(253,224,71,0.65);
+  }
+  body{ margin:0; background:var(--bg); color:var(--yellow); font-family: Arial, sans-serif; }
+  .container{ max-width: 980px; margin:auto; padding:24px; }
+  h1{ text-align:center; color:var(--red); margin: 0; font-size:52px; }
+  .sub{ text-align:center; margin-top:8px; font-style:italic; color:rgba(253,224,71,0.9); }
+
+  .divider{
+    height:6px; margin:18px 0 26px;
+    background: repeating-linear-gradient(45deg, #fff 0, #fff 10px, #000 10px, #000 20px);
+    border:1px solid rgba(253,224,71,0.4);
+  }
+
+  .card{
+    background: var(--panel);
+    border: 2px solid rgba(253,224,71,0.9);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.6) inset;
+  }
+
+  .topRow{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; }
+  .pill{
+    display:inline-flex; gap:8px; align-items:center;
+    padding: 8px 12px; border-radius: 999px;
+    border: 1px solid rgba(253,224,71,0.35);
+    background: rgba(0,0,0,0.4);
+    font-size: 12px; color: rgba(253,224,71,0.85);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  .progressWrap{ flex: 1; min-width: 260px; }
+  .progressBar{ height:10px; border-radius:999px; background:#222; overflow:hidden; border:1px solid rgba(253,224,71,0.25); }
+  .progressFill{
+    height:100%;
+    width:0%;
+    background: linear-gradient(90deg, rgba(253,224,71,0.95), rgba(239,68,68,0.95));
+    transition: width 250ms ease;
+  }
+  .stepLabel{ margin-top:6px; font-size:12px; color:var(--muted); }
+
+  .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 760px){ .grid{ grid-template-columns: 1fr; } }
+
+  label{ display:block; font-size: 12px; color: rgba(253,224,71,0.85); margin: 10px 0 6px; }
+  input, select, textarea{
+    width:100%; box-sizing:border-box;
+    padding:10px 10px;
+    border-radius:10px;
+    border:1px solid rgba(253,224,71,0.65);
+    background:#000;
+    color: var(--yellow);
+    outline:none;
+  }
+  textarea{ min-height: 90px; resize: vertical; }
+  .hint{ font-size: 11px; color: rgba(253,224,71,0.6); margin-top:6px; }
+
+  .btnRow{ display:flex; gap:10px; justify-content:space-between; margin-top: 16px; }
+  button{
+    border:none; border-radius: 12px; padding: 10px 14px; cursor:pointer; font-weight: 800;
+  }
+  .btnGhost{
+    background: transparent; color: var(--yellow);
+    border: 1px solid rgba(253,224,71,0.65);
+  }
+  .btnPrimary{
+    background: var(--red); color: var(--white);
+  }
+  .btnPrimary:hover{ background: #dc2626; }
+  .btnGhost:hover{ background: rgba(253,224,71,0.08); }
+
+  .absurdBox{
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px dashed rgba(239,68,68,0.8);
+    background: rgba(0,0,0,0.55);
+    color: rgba(253,224,71,0.9);
+    font-size: 12px;
+  }
+
+  .tag{
+    display:inline-block; margin: 6px 6px 0 0;
+    padding: 5px 10px; border-radius: 999px;
+    border: 1px solid rgba(253,224,71,0.25);
+    background: rgba(253,224,71,0.08);
+    font-size: 11px;
+  }
+
+  .hidden{ display:none; }
+
+  .footer{
+    margin-top: 26px;
+    text-align:center;
+    font-size: 12px;
+    color: rgba(253,224,71,0.55);
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <H1><img src='RulezLawyers_Logo_sm.png'></H1>
+  <div class="divider"></div>
+
+  <div class="card" id="wizard">
+
+    <div class="topRow">
+      <div class="pill">Race Control • Appeals Portal</div>
+      <div class="progressWrap">
+        <div class="progressBar"><div class="progressFill" id="progressFill"></div></div>
+        <div class="stepLabel" id="stepLabel">Step 1 of 6 — Establish Innocence</div>
+      </div>
+      <div class="pill" id="riskPill">Likelihood of Being Ignored: 83%</div>
+    </div>
+
+    <!-- STEP 1 -->
+    <section class="step" data-step="1">
+      <h2>Step 1: Establish Innocence</h2>
+      <div class="grid">
+        <div>
+          <label>Driver Name</label>
+          <input id="driverName" placeholder="Enter your completely innocent name" />
+          <div class="hint">Tip: Innocence improves with confident typing.</div>
+        </div>
+        <div>
+          <label>Car Number (allegedly)</label>
+          <input id="carNumber" placeholder="e.g., 42 (pure coincidence)" />
+          <div class="hint">Numbers are legally binding if shouted loudly enough.</div>
+        </div>
+      </div>
+
+      <div class="absurdBox">
+        <b>Notice:</b> By continuing, you agree that “facts” are optional and “tone” is mandatory.
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step hidden" data-step="2">
+      <h2>Step 2: Describe the Injustice</h2>
+      <div class="grid">
+        <div>
+          <label>Incident Type</label>
+          <select id="incidentType">
+            <option>Unfair Black Flag</option>
+            <option>Track Limits (Subjective)</option>
+            <option>Pit Lane Shenanigans</option>
+            <option>General Rulebook Abuse</option>
+            <option>Cosmic Conspiracy (Unprovable)</option>
+          </select>
+        </div>
+        <div>
+          <label>Lap Number</label>
+          <input id="lapNumber" placeholder="Totally accurate lap number" />
+        </div>
+      </div>
+
+      <label>Who is to blame?</label>
+      <select id="blame">
+        <option>Race Control (obviously)</option>
+        <option>The other driver (fictional villain)</option>
+        <option>The rulebook comma</option>
+        <option>Mercury retrograde</option>
+        <option>Ohio (always)</option>
+      </select>
+
+      <div class="absurdBox">
+        <span class="tag">“I was ahead in spirit”</span>
+        <span class="tag">“The cone moved first”</span>
+        <span class="tag">“Your honor, it was vibes”</span>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="step hidden" data-step="3">
+      <h2>Step 3: Provide “Evidence”</h2>
+
+      <label>Upload Totally Definitive Proof (optional but recommended)</label>
+      <input id="evidence" type="file" />
+
+      <div class="hint">Accepted formats: JPG, PNG, PDF, TXT, and “I swear it happened.”</div>
+
+      <label>Witness Type</label>
+      <select id="witness">
+        <option>Dashcam Footage</option>
+        <option>My Friend Who Was There</option>
+        <option>A Screenshot of a Group Chat</option>
+        <option>Anonymous Internet Comment</option>
+        <option>My Gut Feeling</option>
+      </select>
+
+      <div class="absurdBox">
+        <b>Evidence Scoring Engine:</b> “My Gut Feeling” is currently weighted at 0.97 due to confidence.
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="step hidden" data-step="4">
+      <h2>Step 4: Choose Outrage Level</h2>
+
+      <label>Outrage Slider</label>
+      <input id="outrage" type="range" min="0" max="100" value="63" />
+      <div class="hint" id="outrageText">Current level: <b>63</b> — “Firmly Disappointed, Slightly Poetic.”</div>
+
+      <label>Desired Remedy</label>
+      <select id="remedy">
+        <option>Remove penalty</option>
+        <option>Restore time</option>
+        <option>Give me the position back (morally)</option>
+        <option>Disqualify my enemies</option>
+        <option>Rewrite the sport in my image</option>
+      </select>
+
+      <div class="absurdBox">
+        <b>Reminder:</b> The louder the remedy, the smaller the chance it happens.
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="step hidden" data-step="5">
+      <h2>Step 5: Select Legal Strategy</h2>
+
+      <label>Argument Strategy</label>
+      <select id="strategy">
+        <option>Misinterpretation of Comma</option>
+        <option>Appendix Technicality</option>
+        <option>Precedent from Different Series</option>
+        <option>“Vibes-Based” Defense</option>
+        <option>“Mopar Is Always Right” Doctrine</option>
+        <option>“I Didn’t See the Flag” Reliance Theory</option>
+      </select>
+
+      <label>Primary Argument (do your worst)</label>
+      <textarea id="statement" placeholder="Explain why you are right regardless of reality"></textarea>
+
+      <div class="absurdBox">
+        <b>Auto‑Generator:</b> If your argument contains the phrase “technically,” we automatically promote it to “legally.” 
+      </div>
+    </section>
+
+    <!-- STEP 6 -->
+    <section class="step hidden" data-step="6">
+      <h2>Step 6: Review & Submit</h2>
+
+      <div class="absurdBox" id="reviewBox"></div>
+
+      <div class="absurdBox">
+        <b>Final Warning:</b> Submitting this protest may cause (a) laughter, (b) denial, or (c) mild administrative shrugging.
+      </div>
+    </section>
+
+    <div class="btnRow">
+      <button class="btnGhost" id="backBtn" type="button">Back</button>
+      <button class="btnPrimary" id="nextBtn" type="button">Next</button>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 RulezLawyers LLP • Not legal advice. Not racing advice. Not even good advice.
+  </div>
+
+</div>
+
+<script>
+  const steps = Array.from(document.querySelectorAll(".step"));
+  const progressFill = document.getElementById("progressFill");
+  const stepLabel = document.getElementById("stepLabel");
+  const riskPill = document.getElementById("riskPill");
+  const nextBtn = document.getElementById("nextBtn");
+  const backBtn = document.getElementById("backBtn");
+
+  const outrage = document.getElementById("outrage");
+  const outrageText = document.getElementById("outrageText");
+  const reviewBox = document.getElementById("reviewBox");
+
+  let current = 1;
+
+  function outrageDescriptor(v){
+    if (v < 20) return "Mildly Confused.";
+    if (v < 40) return "Annoyed but Civil.";
+    if (v < 60) return "Firmly Disappointed.";
+    if (v < 80) return "Audibly Offended.";
+    return "FIA-Level Conspiracy Energy.";
+  }
+
+  function calcIgnoreChance(){
+    // Comically pessimistic formula:
+    const o = Number(outrage?.value || 60);
+    const base = 78;
+    const outragePenalty = Math.max(0, (o - 50)) * 0.22;     // more outrage -> more ignored
+    const randomness = Math.floor(Math.random() * 6) - 3;    // -3..+2
+    const val = Math.min(99, Math.max(42, Math.round(base + outragePenalty + randomness)));
+    return val;
+  }
+
+  function updateUI(){
+    steps.forEach(s => s.classList.toggle("hidden", Number(s.dataset.step) !== current));
+    const pct = ((current - 1) / (steps.length - 1)) * 100;
+    progressFill.style.width = pct + "%";
+
+    const titles = {
+      1: "Step 1 of 6 — Establish Innocence",
+      2: "Step 2 of 6 — Describe the Injustice",
+      3: "Step 3 of 6 — Provide “Evidence”",
+      4: "Step 4 of 6 — Choose Outrage Level",
+      5: "Step 5 of 6 — Select Legal Strategy",
+      6: "Step 6 of 6 — Review & Submit",
+    };
+    stepLabel.textContent = titles[current];
+
+    const ignore = calcIgnoreChance();
+    riskPill.textContent = "Likelihood of Being Ignored: " + ignore + "%";
+
+    backBtn.style.visibility = current === 1 ? "hidden" : "visible";
+    nextBtn.textContent = current === steps.length ? "Submit Protest" : "Next";
+
+    if (current === 6) buildReview(ignore);
+  }
+
+  function buildReview(ignore){
+    const data = collectData();
+    reviewBox.innerHTML = `
+      <b>Review Summary (for your own comfort):</b><br><br>
+      <b>Driver:</b> ${escapeHtml(data.driverName || "Unnamed Legend")} (#${escapeHtml(data.carNumber || "??")})<br>
+      <b>Incident:</b> ${escapeHtml(data.incidentType)} on lap ${escapeHtml(data.lapNumber || "??")}<br>
+      <b>Blame:</b> ${escapeHtml(data.blame)}<br>
+      <b>Witness:</b> ${escapeHtml(data.witness)}<br>
+      <b>Outrage:</b> ${escapeHtml(String(data.outrage))}/100 — ${escapeHtml(outrageDescriptor(data.outrage))}<br>
+      <b>Remedy:</b> ${escapeHtml(data.remedy)}<br>
+      <b>Strategy:</b> ${escapeHtml(data.strategy)}<br><br>
+      <b>Predicted Outcome:</b> ${ignore}% ignored, ${100-ignore}% “administratively acknowledged.”<br>
+      <span style="opacity:0.7; font-size:11px;">
+        This prediction is generated by the RulezLawyers™ Schrödinger Compliance Engine.
+      </span>
+    `;
+  }
+
+  function collectData(){
+    return {
+      driverName: document.getElementById("driverName")?.value || "",
+      carNumber: document.getElementById("carNumber")?.value || "",
+      incidentType: document.getElementById("incidentType")?.value || "Unfair Black Flag",
+      lapNumber: document.getElementById("lapNumber")?.value || "",
+      blame: document.getElementById("blame")?.value || "Race Control (obviously)",
+      witness: document.getElementById("witness")?.value || "Dashcam Footage",
+      outrage: Number(document.getElementById("outrage")?.value || 63),
+      remedy: document.getElementById("remedy")?.value || "Remove penalty",
+      strategy: document.getElementById("strategy")?.value || "Appendix Technicality",
+      statement: document.getElementById("statement")?.value || "",
+      evidenceName: document.getElementById("evidence")?.files?.[0]?.name || ""
+    };
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>'"]/g, c => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"
+    }[c]));
+  }
+
+  outrage?.addEventListener("input", () => {
+    outrageText.innerHTML = `Current level: <b>${outrage.value}</b> — “${outrageDescriptor(Number(outrage.value))}”`;
+    riskPill.textContent = "Likelihood of Being Ignored: " + calcIgnoreChance() + "%";
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (current < steps.length){
+      current++;
+      updateUI();
+      return;
+    }
+    // SUBMIT: store data and navigate
+    const payload = collectData();
+    localStorage.setItem("rulezlawyers_protest", JSON.stringify(payload));
+    window.location.href = "protest-received.html";
+  });
+
+  backBtn.addEventListener("click", () => {
+    if (current > 1){
+      current--;
+      updateUI();
+    }
+  });
+
+  updateUI();
+</script>
+</body>
+</html>
