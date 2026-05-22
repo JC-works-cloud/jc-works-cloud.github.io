@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RulezLawyers</title>
+
+<style>
+body {
+  background: black;
+  color: #fde047;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ef4444;
+  font-size: 56px;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.divider {
+  height: 6px;
+  margin: 20px 0;
+  background: repeating-linear-gradient(
+    45deg, white 0, white 10px,
+    black 10px, black 20px
+  );
+}
+
+.card {
+  background: #111;
+  border: 2px solid #fde047;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #fde047;
+  background: black;
+  color: #fde047;
+  border-radius: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #ef4444;
+  border: none;
+  color: white;
+  margin-top: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #dc2626;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+
+.small {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+}
+
+/* Individual badges */
+.badge-boss {
+  background: #ef4444;
+  color: white;
+}
+
+.badge-blackflag {
+  background: black;
+  border: 1px solid #fde047;
+  color: #fde047;
+}
+
+.badge-tire {
+  background: #facc15;
+  color: black;
+}
+
+.badge-mopar {
+  background: #2563eb;
+  color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<h1>
+<img src="RulezLawyers_sm.png"></h1>
+
+<div class="divider"></div>
+
+<!-- PROTEST FORM -->
+<h2>Request Representation</h2>
+<div class="card">
+
+<!--
+<label>Driver Name</label>
+<input type="text" placeholder="Enter your completely innocent name">
+<label>Team Name/Number</label>
+<input type="text" placeholder="What Team's honor are we defending">
+
+<label>Incident Type</label>
+<select>
+  <option>Illegitimate Black Flag</option>
+  <option>Track Borders (Subjective)</option>
+  <option>Pit Lane Shenanigans</option>
+  <option>General Rulebook Abuse</option>
+  <option>Other (Explain how they wronged you)</option>
+</select>
+
+<label>Lap Number/Time of Incident</label>
+<input type="text" placeholder="Totally accurate lap number or Time">
+
+<label>Argument Strategy</label>
+<select>
+  <option>Misinterpretation of Comma</option>
+  <option>Appendix Technicality</option>
+  <option>Precedent from Different Series</option>
+  <option>"Vibes-Based" Defense</option>
+</select>
+
+<label>Statement</label>
+<textarea rows="3" placeholder="Explain why you are right regardless of reality"></textarea>
+
+---->
+<button onclick="window.location.href='request-engine.html'">
+  Submit Request
+</button>
+
+
+<p class="small">
+Disclaimer: This does not guarantee justice, fairness, or honesty.
+But it does guarantee maximum argument.
+</p>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ATTORNEYS -->
+<h2>Meet the Attorneys</h2>
+
+<div class="grid">
+
+<div class="card">
+<div class="badge badge-boss">FOUNDER</div>
+<h3>"The Boss" J.C.</h3>
+<p>Senior Partner, Technicalities Division</p>
+<p>• Footnote Warfare<br>• Rulebook Archaeology<br>• Appeals at Speed</p>
+<button>Retain</button>
+</div>
+
+<div class="card">
+<div class="badge badge-blackflag">PENALTY VOIDED</div>
+<h3>"Black Flag" Chris</h3>
+<p>Counsel, Race Control Negotiations</p>
+<p>• Caution Clause<br>• Radio Objections<br>• Penalty Mitigation</p>
+<button>Retain</button>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="badge badge-tire">HIGH WEAR</div>
+<h3>"Tire Buster" Sean</h3>
+<p>Associate Compliance-ish Services</p>
+<p>• Cone Interpretation<br>• Entry/Exit Semantics<br>• Fast Talking</p>
+<button>Retain</button>
+</div>
+
+<div class="card">
+<div class="badge badge-mopar">MOPAR CERTIFIED</div>
+<h3>"Mopar is always right" Ernie</h3>
+<p>Associate, Mechanical Superiority</p>
+<p>• Displacement-Based Arguments <br>• Carburetor Defense Theory<br>• Vintage Performance Precedents</p>
+<button>Retain</button>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- CASE RESULTS -->
+<h2>Case Results</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>False Black Flag</h3>
+<p>Lap 42 – Unclear Hand Signal</p>
+<p><b>Result:</b> Black Flag stricken from Permanent Record</p>
+</div>
+
+<div class="card">
+<h3>Track borders disputed</h3>
+<p>Turn 7 – Grass Was Green</p>
+<p><b>Result:</b> One free lap added to team record.</p>
+</div>
+
+<div class="card">
+<h3>Pit Entry Cone Damage</h3>
+<p>Cone Placement Questionable</p>
+<p><b>Result:</b> 5 seconds restored</p>
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<h2>Client Testimonials</h2>
+
+<div class="grid">
+
+<div class="card">
+"They overturned my race ejection because the rule was ambiguous."
+<br><br>
+<span class="small">— Verified Driver (self-certified)</span>
+</div>
+
+<div class="card">
+"I technically didn’t win… but officially I did."
+<br><br>
+<span class="small">— Winner by Footnote</span>
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div class="divider"></div>
+
+<div class="footer">
+
+<img src="FrictionJurisdiction_sm.png">
+
+<p>© 2026 RulezLawyers LLP</p>
+<p>Winning on a technicality since late 2025.</p>
+<p class="small">Not legal advice. Not racing advice. Not even good advice.</p>
+</div>
+
+</div>
+
+</body>
+</html>
