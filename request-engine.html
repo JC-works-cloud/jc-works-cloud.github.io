@@ -388,7 +388,15 @@
     // SUBMIT: store data and navigate
     const payload = collectData();
     localStorage.setItem("rulezlawyers_protest", JSON.stringify(payload));
-    window.location.href = "protest-received.html";
+	fetch("https://script.google.com/macros/s/AKfycbytO27cffY1bXGHN7DnXRhjYEZjOnHNvfhaG9Q4aiZITukVZhT9xXYDRV_UvnQKKgH8/exec", {
+		method: "POST",
+		mode: "no-cors",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(payload)
+	});
+	setTimeout(() => {
+		window.location.href = "protest-received.html";
+	}, 500);
   });
 
   backBtn.addEventListener("click", () => {
